@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<title>Movie Recommender by Heet Madhu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+
+
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.menu_item {
+  float: left;
+}
+
+li.menu_item a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.active {
+  background-color: #4CAF50;
+}
+
+/* Change the link color to #111 (black) on hover */
+li.menu_item a:hover {
+  background-color: #111;
+}
+
+.bgimg {
+  /*background-image: url('images/background.jpg');*/
+  background-color: white;
+  min-height: 100%;
+  background-blend-mode: hard-light;
+  background-position: center;
+  background-size: cover;
+}
+.w3-display-middle{
+  color: #333;
+  font-weight: bold;
+  position:absolute;
+  top:10%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  -ms-transform:translate(-50%,-50%)
+  
+
+  /*background-color: black;*/
+}
+.w3-jumbo{
+	vertical-align: top;
+	text-align: top|center;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example{
+  position:absolute;
+  top:22%;
+  width: 100%;
+  left:25%;
+  border-radius: 7px;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 40%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background: #4CAF50;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+/*form.example button:hover {
+  background: #0b7dda;
+}*/
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<body>
+
+<ul class="menu">
+	<li class="active menu_item"><a href="/search">Search</a></li>
+	<li class="menu_item"><a href="/classify">Classification</a></li>
+	<!-- <li class="menu_item"><a href = "">Recommendation</a></li> -->
+	
+</ul>
+
+<div class="bgimg w3-display-container">
+  <div class="w3-display-middle w3-jumbo">
+    <p>Movie Search</p>
+  </div>
+  <form class="example" action="/search" method="POST">
+    <input type="text" placeholder="Search.." name="query">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  
+</div>
+
+
+
+
+
+<!-- Contact Modal -->
+
+</body>
+</html>
+

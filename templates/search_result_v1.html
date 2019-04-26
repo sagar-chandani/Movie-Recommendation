@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/search_result.css') }}">
+	
+	<style type="text/css">
+	
+/* Add a black background color to the top navigation bar */
+.topnav {
+  overflow: hidden;
+	margin: 10px;
+  /* background-color:white; */
+}
+
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.menu_item {
+  float: left;
+}
+
+li.menu_item a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.active {
+  background-color: #4CAF50;
+}
+
+/* Change the link color to #111 (black) on hover */
+li.menu_item a:hover {
+  background-color: #111;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+  float: none;
+  padding: 6px;
+	width: 50%;
+  border: 2px solid #333;
+  margin-top: 8px;
+  margin-left: 0px;
+	margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.topnav h2{
+		text-align: left;
+		margin: 5px;
+		color: #333;
+	}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .topnav  .topnav input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+	
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+body {
+  background: #eee;
+  margin: 0px auto;
+  /*padding: 20px;*/
+/*   outline: 1px solid #ccc; */
+}
+
+/* Still use global css (not utility css) for base typography etc? */
+p {
+  margin-bottom: 0.8em;
+}
+
+.text-ms {
+	font-size: 1.0rem;
+	color: black;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+	</style>
+</head>
+<body>
+
+<ul class="menu">
+	<li class="active menu_item"><a href="/search">Search</a></li>
+	<li class="menu_item"><a href="/classify">Classification</a></li>
+	<!-- <li class="menu_item"><a href = "">Recommendation</a></li> -->
+	
+</ul>
+
+
+<div class="topnav">
+	<h2>Movie Search</h2>
+		<form action="/search" method="POST">
+            <input type="text" placeholder="Search.." name="query"/>
+        </form>
+
+	</div>
+
+
+<div class="flex flex-wrap -m-3"> 
+  {% for (i,item) in list.iterrows() %}
+	<div class="w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
+  	<a href="{{item.loc['homepage']}}">
+		
+		<div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
+		  <div class="p-4 flex-1 flex flex-col">
+		    <h3 class="mb-4 text-2xl">{{item.loc['original_title']}}</h3>
+		    <div class="mb-4 text-grey-darker text-sm flex-1">
+		      <p>{{item.loc['tagline']}}</p>
+		    </div>
+		    <div class="mb-4 text-ms flex-1">
+		      <p>{{item.loc['overview']}}</p>
+		    </div>
+		    
+		  </div>
+		</div>
+	</a>
+
+		</div>  
+
+ {% endfor %}
+    
+</div>
+
+</body>
+</html>
+
