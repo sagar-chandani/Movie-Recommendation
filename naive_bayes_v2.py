@@ -57,6 +57,6 @@ class naive_bayes:
     def count_word_occurance_class(self, x_train, y_train, class_index):
         start = time.clock()
         x_class = x_train[y_train[:,class_index]==1]
-        counter = collections.Counter(x for xs in x_class for x in set(xs
+        counter = collections.Counter(x for xs in x_class for x in set(xs))
         return counter
     
